@@ -1,0 +1,128 @@
+@import "../../breakpoints.scss";
+
+.auth {
+  height: 100vh;
+  // .auth__container
+  &__container {
+    display: flex;
+    height: 100%;
+
+    @include sm {
+      flex-direction: column;
+    }
+  }
+
+  // .auth__about
+
+  &__about {
+    margin: 50px 0 0 0;
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    padding: 0 10px;
+
+    @include sm {
+      margin: 20px 0 20px 0;
+    }
+  }
+
+  // .auth__logo
+
+  &__logo {
+    flex: 0 1 50%;
+    display: flex;
+    justify-content: center;
+    img {
+      max-width: 100%;
+      align-self: center;
+    }
+  }
+
+  &__title {
+    flex: 0 1 50%;
+    align-self: center;
+    margin-top: 20px;
+  }
+
+  // .auth__description
+
+  &__description {
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+    line-height: 1.5;
+  }
+
+  // .auth__slogan
+
+  &__slogan {
+    font-size: 24px;
+    font-weight: 300;
+  }
+
+  // .auth__form
+
+  &__form {
+    flex: 0 1 50%;
+    background-color: var(--secondary-color);
+  }
+
+  @include sm {
+    height: 100%;
+  }
+}
+.form {
+  // .form__container
+
+  &__container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include sm {
+      margin: 20px;
+    }
+  }
+
+  &__content {
+    padding: 15px;
+    flex: 0 1 50%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: var(--primary-color);
+    border-radius: 8px;
+    box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.034),
+      0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+      0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+      0 100px 80px rgba(0, 0, 0, 0.12);
+
+    h2 {
+      font-size: 28px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    label {
+      color: var(--primary-color);
+    }
+
+    svg {
+      align-self: center;
+    }
+
+    @include lg {
+      flex: 0 1 70%;
+    }
+    @include sm {
+      flex: 0 1 95%;
+    }
+  }
+  &__switch-btn {
+    text-align: end;
+  }
+}
