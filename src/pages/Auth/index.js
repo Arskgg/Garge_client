@@ -7,28 +7,40 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./styles.scss";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "../../utils/constants";
+import { useDispatch } from "react-redux";
+import { registerUser, loginUser } from "../../store/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const location = useLocation();
-  const isLogin = location.pathname === LOGIN_ROUTE;
-  const [inputs, setInputs] = useState({
+  const [userData, setUserData] = useState({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+  const location = useLocation();
+  const isLogin = location.pathname === LOGIN_ROUTE;
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const handleShowPassword = () => {
     setShowPassword((prev) => !prev);
   };
 
   const handleChange = (e) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setUserData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (isLogin) {
+      dispatch(loginUser({ userData, navigate }));
+    } else {
+      dispatch(registerUser({ userData, navigate }));
+    }
   };
 
   return (

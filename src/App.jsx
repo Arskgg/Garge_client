@@ -11,10 +11,10 @@ function App() {
     location.pathname !== REGISTRATION_ROUTE;
 
   return (
-    <div>
+    <>
       {isAuth && <NavBar />}
       <AppRouter />
-    </div>
+    </>
   );
 }
 

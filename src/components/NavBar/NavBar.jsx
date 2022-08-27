@@ -15,10 +15,18 @@ import {
   USER_ROUTE,
 } from "../../utils/constants";
 import Loading from "../Loading/Loading";
+import { useDispatch } from "react-redux";
+import { logOutUser } from "../../store/userSlice";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+
   const [toggleUserMenu, setToggleUserMenu] = useState(false);
-  const user = false;
+  const user = localStorage.getItem("user");
+
+  const logOutHandler = () => {
+    dispatch(logOutUser());
+  };
 
   return (
     <nav className="navbar">
@@ -36,7 +44,7 @@ const NavBar = () => {
         </div>
 
         <div className="navbar__menu menu">
-          {!-user ? (
+          {user ? (
             <>
               <div className="menu__create-post">
                 <Link to={POST_CREATE_ROUTE}>
@@ -59,7 +67,7 @@ const NavBar = () => {
                         </Link>
                       </li>
                       <li className="profile-menu__link">
-                        <Link to={LOGIN_ROUTE}>
+                        <Link to={LOGIN_ROUTE} onClick={logOutHandler}>
                           <LogoutIcon />
                           Log Out
                         </Link>
