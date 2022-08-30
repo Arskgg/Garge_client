@@ -1,9 +1,9 @@
 import React from "react";
-import "./style.scss";
+import styles from "./Button.module.scss";
 
-const Button = ({ children, onClick }) => {
+const Button = ({ children, onClick, outlined }) => {
   return (
-    <div className="buttonContainer">
+    <div className={outlined ? styles.buttonOutlined : styles.buttonFilled}>
       <button onClick={onClick}>{children}</button>
     </div>
   );

@@ -1,10 +1,13 @@
 @import "../../breakpoints.scss";
 
 .navbar {
+  height: 100px;
   position: fixed;
   width: 100%;
+  z-index: 50;
 
   &__container {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     padding: 10px 30px;

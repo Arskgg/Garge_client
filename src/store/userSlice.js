@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { login, registration, logOut } from "../services/userService";
 import jwtDecode from "jwt-decode";
-import { HOME_ROUTE, LOGIN_ROUTE } from "../utils/constants";
+import { HOME_ROUTE } from "../utils/constants";
 
 export const registerUser = createAsyncThunk(
   "user/registration",
@@ -9,7 +9,7 @@ export const registerUser = createAsyncThunk(
     try {
       const { data } = await registration(userData);
       const user = jwtDecode(data.token);
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify({ user, token: data.token }));
       dispatch(setCredentials({ user, token: data.token }));
       navigate(HOME_ROUTE);
     } catch (error) {
@@ -24,7 +24,7 @@ export const loginUser = createAsyncThunk(
     try {
       const { data } = await login(userData);
       const user = jwtDecode(data.token);
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify({ user, token: data.token }));
       dispatch(setCredentials({ user, token: data.token }));
       navigate(HOME_ROUTE);
     } catch (error) {
@@ -76,5 +76,3 @@ export const selectCurrentToken = (state) => state.user.token;
 export const { setCredentials, removeCredentials } = userSlice.actions;
 
 export default userSlice.reducer;
-
-//ADD REGISTRATION AND LOGIN Reducers

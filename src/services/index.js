@@ -9,7 +9,11 @@ const authAPI = axios.create({
 });
 
 const authInterceptor = (request) => {
-  request.headers.authorization = `Bearer ${localStorage.getItem("token")}`;
+  request.headers.authorization = `Bearer ${
+    localStorage.getItem("user").token
+  }`;
+
+  console.log(localStorage.getItem("user").token);
   return request;
 };
 

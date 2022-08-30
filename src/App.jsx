@@ -13,9 +13,13 @@ function App() {
   return (
     <>
       {isAuth && <NavBar />}
-      <AppRouter />
+      <main className="page_content">
+        <AppRouter />
+      </main>
     </>
   );
 }
 
 export default App;
+
+//think about token and user inside redux store. Do i have to use it inside if i use local storage?

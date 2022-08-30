@@ -1,3 +1,5 @@
+import { images } from "../utils/images";
+
 export const cars = [
   {
     make: "Abarth",
@@ -10,7 +12,7 @@ export const cars = [
       "695 XSR Yamaha LTD Edition",
       "124 spider 2016 Edition",
     ],
-    img: "../assets/car_barnds_icons/abarth-logo.png",
+    img: images.abarth,
   },
   {
     make: "Acura",
@@ -20,6 +22,7 @@ export const cars = [
       "EL",
       "ILX",
       "Legend",
+      "MDX",
       "RL",
       "RLX",
       "RSX",
@@ -29,7 +32,7 @@ export const cars = [
       "Vigor",
       "ZDX",
     ],
-    img: "../assets/car_barnds_icons/acura-logo.png",
+    img: images.acura,
   },
   {
     make: "Alfa Romeo",
@@ -48,7 +51,7 @@ export const cars = [
       "166",
       "GTV",
     ],
-    img: "../assets/car_barnds_icons/alfa-romeo-logo.png",
+    img: images.alfa_romeo,
   },
   {
     make: "Aston Martin",
@@ -64,7 +67,7 @@ export const cars = [
       "One-77",
       "CC100",
     ],
-    img: "../assets/car_barnds_icons/aston-martin-logo.png",
+    img: images.aston_martin,
   },
   {
     make: "Audi",
@@ -103,7 +106,7 @@ export const cars = [
       "e-tron",
       "e-tron GT",
     ],
-    img: "../assets/car_barnds_icons/audi-logo.png",
+    img: images.audi,
   },
   {
     make: "BMW",
@@ -136,7 +139,7 @@ export const cars = [
       "X7",
       "Z4",
     ],
-    img: "../assets/car_barnds_icons/bmw-logo.png",
+    img: images.bmw,
   },
   {
     make: "Bentley",
@@ -149,12 +152,12 @@ export const cars = [
       "Azure",
       "Arnage",
     ],
-    img: "../assets/car_barnds_icons/bentley-logo.png",
+    img: images.bentley,
   },
   {
     make: "Bugatti",
     models: ["Veyron", "Chiron", "Divo", "Centodieci", "Bolide", "Vision"],
-    img: "../assets/car_barnds_icons/bugatti-logo.png",
+    img: images.bugatti,
   },
   {
     make: "Buick",
@@ -180,7 +183,7 @@ export const cars = [
       "Terraza",
       "Wildcat",
     ],
-    img: "../assets/car_barnds_icons/buick-logo.png",
+    img: images.buick,
   },
   {
     make: "Cadillac",
@@ -209,7 +212,7 @@ export const cars = [
       "STS-V",
       "XLR-V",
     ],
-    img: "../assets/car_barnds_icons/cadillac-logo-2014-show.png",
+    img: images.cadillac,
   },
   {
     make: "Chevrolet",
@@ -340,7 +343,7 @@ export const cars = [
       "Vega",
       "Venture",
     ],
-    img: "../assets/car_barnds_icons/chevrolet-logo.png",
+    img: images.chevrolet,
   },
   {
     make: "Chrysler",
@@ -376,7 +379,7 @@ export const cars = [
       "TC",
       "Windsor",
     ],
-    img: "../assets/car_barnds_icons/chrysler-logo.png",
+    img: images.chrysler,
   },
   {
     make: "Citroën",
@@ -463,12 +466,12 @@ export const cars = [
       "TUB / TUC",
       "U23",
     ],
-    img: "../assets/car_barnds_icons/citroen-logo.png",
+    img: images.citroen,
   },
   {
     make: "Daewoo",
     models: ["Lanos", "Nubira", "Leganza"],
-    img: "../assets/car_barnds_icons/daewoo-logo.png",
+    img: images.daewoo,
   },
   {
     make: "Daihatsu",
@@ -502,17 +505,17 @@ export const cars = [
       "Also called",
       "Current model",
     ],
-    img: "../assets/car_barnds_icons/daihatsu-logo.png",
+    img: images.daihatsu,
   },
   {
     make: "DeLorean",
     models: ["DMC-12"],
-    img: "../assets/car_barnds_icons/delorean-logo.png",
+    img: images.delorean,
   },
   {
     make: "Dodge",
     models: ["Attitude", "Challenger", "Charger", "Neon", "Durango", "Journey"],
-    img: "../assets/car_barnds_icons/dodge-logo.png",
+    img: images.dodge,
   },
   {
     make: "Eagle",
@@ -526,7 +529,7 @@ export const cars = [
       "2000GTX",
       "Vision",
     ],
-    img: "../assets/car_barnds_icons/eagle-logo.png",
+    img: images.eagle,
   },
   {
     make: "Ferrari",
@@ -558,7 +561,7 @@ export const cars = [
       "Dino 206 GT",
       "365 GTC",
       "365 GTS",
-      "Ferrari 365 GTB/4",
+      "365 GTB/4",
       "365 GTS/4",
       "Dino 246 GT",
       "Dino 246 GTS",
@@ -607,10 +610,8 @@ export const cars = [
       "456 GT",
       "456 GTA",
       "348 GTB",
-      "348 GTB",
       "348 GTS",
       "F355 Berlinetta",
-      "F355 GTS",
       "F355 GTS",
       "F50",
       "F355 Spider",
@@ -628,15 +629,15 @@ export const cars = [
       "360 Challenge Stradale",
       "612 Scaglietti",
       "F430",
-      "Ferrari F430 Spider",
+      "F430 Spider",
       "575 Superamerica",
       "FXX",
       "612 Kappa",
       "P4/5",
       "599 GTB Fiorano",
       "612 Sessanta",
-      "Ferrari SP1",
-      "Ferrari 430 Scuderia",
+      "SP1",
+      "430 Scuderia",
       "California",
       "Scuderia Spider 16M",
       "599XX",
@@ -644,17 +645,17 @@ export const cars = [
       "P540 Superfast Aperta",
       "599 SA Aperta",
       "599 GTO",
-      "Ferrari FF",
-      "Ferrari Superamerica 45",
-      "Ferrari 458 Spider",
-      "Ferrari F12berlinetta",
+      "FF",
+      "Superamerica 45",
+      "458 Spider",
+      "F12berlinetta",
       "LaFerrari",
-      "Ferrari California T",
-      "Ferrari 488 GTB",
-      "Ferrari Portofino",
-      "Ferrari Roma[7]",
+      "California T",
+      "488 GTB",
+      "Portofino",
+      "Roma[7]",
     ],
-    img: "../assets/car_barnds_icons/ferrari-logo.png",
+    img: images.ferrari,
   },
   {
     make: "Fiat",
@@ -812,12 +813,12 @@ export const cars = [
       "X1/23",
       "Zero",
     ],
-    img: "../assets/car_barnds_icons/fiat-logo.png",
+    img: images.fiat,
   },
   {
     make: "Fisker",
     models: ["Karma"],
-    img: "../assets/car_barnds_icons/fisker-logo.png",
+    img: images.fisker,
   },
   {
     make: "Ford",
@@ -938,17 +939,17 @@ export const cars = [
       "Windstar",
       "Windstar Cargo",
     ],
-    img: "../assets/car_barnds_icons/ford-logo.png",
+    img: images.ford,
   },
   {
     make: "Genesis",
     models: ["G70", "G80", "G90", "GV60", "GV70", "GV80"],
-    img: "../assets/car_barnds_icons/genesis-logo.png",
+    img: images.genesis,
   },
   {
     make: "Geo",
     models: ["Metro", "Prizm", "Spectrum", "Storm", "Tracker"],
-    img: "../assets/car_barnds_icons/geo-logo.png",
+    img: images.geo,
   },
   {
     make: "GMC",
@@ -1001,7 +1002,7 @@ export const cars = [
       "Vandura",
       "Yukon Hybrid",
     ],
-    img: "../assets/car_barnds_icons/gmc-logo.png",
+    img: images.gmc,
   },
   {
     make: "Honda",
@@ -1036,12 +1037,12 @@ export const cars = [
       "N600",
       "Prelude",
     ],
-    img: "../assets/car_barnds_icons/honda-logo.png",
+    img: images.honda,
   },
   {
     make: "Hummer",
     models: ["H1", "H2", "H3"],
-    img: "../assets/car_barnds_icons/hummer-logo.png",
+    img: images.hummer,
   },
   {
     make: "Hundai",
@@ -1087,7 +1088,7 @@ export const cars = [
       "XG300",
       "XG350",
     ],
-    img: "../assets/car_barnds_icons/hyundai-logo.png",
+    img: images.hundai,
   },
   {
     make: "Infiniti",
@@ -1131,7 +1132,7 @@ export const cars = [
       "QX4",
       "QX60 Hybrid",
     ],
-    img: "../assets/car_barnds_icons/infiniti-logo.png",
+    img: images.infiniti,
   },
   {
     make: "Isuzu",
@@ -1165,7 +1166,7 @@ export const cars = [
       "MU-7",
       "i-Series",
     ],
-    img: "../assets/car_barnds_icons/isuzu-logo.png",
+    img: images.isuzu,
   },
   {
     make: "Jaguar",
@@ -1190,7 +1191,7 @@ export const cars = [
       "X-TYPE",
       "XF Sportbrake",
     ],
-    img: "../assets/car_barnds_icons/jaguar-logo.png",
+    img: images.jaguar,
   },
   {
     make: "Jeep",
@@ -1219,7 +1220,7 @@ export const cars = [
       "Jeepster",
       "Wagoneer",
     ],
-    img: "../assets/car_barnds_icons/jeep-logo.png",
+    img: images.jeep,
   },
   {
     make: "Kia",
@@ -1258,7 +1259,7 @@ export const cars = [
       "Sephia",
       "Sportage Hybrid Plug-In",
     ],
-    img: "../assets/car_barnds_icons/kia-logo.png",
+    img: images.kia,
   },
   {
     make: "Koenigsegg",
@@ -1285,7 +1286,7 @@ export const cars = [
       "Jesko Absolut",
       "Gemera",
     ],
-    img: "../assets/car_barnds_icons/koenigsegg-logo.png",
+    img: images.koenigsegg,
   },
   {
     make: "Lamborghini",
@@ -1315,7 +1316,7 @@ export const cars = [
       "Essenza SCV12ruen",
       "Countach LPI 800-4",
     ],
-    img: "../assets/car_barnds_icons/lamborghini-logo.png",
+    img: images.lamborghini,
   },
   {
     make: "Lancia",
@@ -1370,7 +1371,7 @@ export const cars = [
       "Ypsilon",
       "Zeta",
     ],
-    img: "../assets/car_barnds_icons/lancia-logo.png",
+    img: images.lancia,
   },
   {
     make: "Land Rover",
@@ -1392,7 +1393,7 @@ export const cars = [
       "Series IIA",
       "Series III",
     ],
-    img: "../assets/car_barnds_icons/land-rover-logo.png",
+    img: images.land_rover,
   },
   {
     make: "Lexus",
@@ -1422,7 +1423,7 @@ export const cars = [
       "HS 250h",
       "LFA",
     ],
-    img: "../assets/car_barnds_icons/lexus-logo.png",
+    img: images.lexus,
   },
   {
     make: "Lincoln",
@@ -1452,7 +1453,7 @@ export const cars = [
       "Premiere",
       "Zephyr",
     ],
-    img: "../assets/car_barnds_icons/lincoln-logo.png",
+    img: images.lincoln,
   },
   {
     make: "Lotus",
@@ -1466,12 +1467,12 @@ export const cars = [
       "Exige",
       "Seven",
     ],
-    img: "../assets/car_barnds_icons/lotus-logo.png",
+    img: images.lotus,
   },
   {
     make: "Lucid",
     models: ["Air"],
-    img: "../assets/car_barnds_icons/lucid-logo.png",
+    img: images.lucid,
   },
   {
     make: "MINI",
@@ -1484,7 +1485,7 @@ export const cars = [
       "Cooper Paceman",
       "Roadster",
     ],
-    img: "../assets/car_barnds_icons/mini-logo.png",
+    img: images.mini,
   },
   {
     make: "Maserati",
@@ -1503,12 +1504,12 @@ export const cars = [
       "Sebring",
       "Spyder",
     ],
-    img: "../assets/car_barnds_icons/maserati-logo.png",
+    img: images.maserati,
   },
   {
     make: "Maybach",
     models: ["57", "62"],
-    img: "../assets/car_barnds_icons/maybach-logo.png",
+    img: images.maybach,
   },
   {
     make: "Mazda",
@@ -1542,7 +1543,7 @@ export const cars = [
       "RX-8",
       "Tribute Hybrid",
     ],
-    img: "../assets/car_barnds_icons/mazda-logo.png",
+    img: images.mazda,
   },
   {
     make: "Mclaren",
@@ -1563,7 +1564,7 @@ export const cars = [
       "P1",
       "Senna",
     ],
-    img: "../assets/car_barnds_icons/mclaren-logo.png",
+    img: images.mclaren,
   },
   {
     make: "Mercedes-Benz",
@@ -1622,7 +1623,7 @@ export const cars = [
       "SLS-Class",
       "SSK",
     ],
-    img: "../assets/car_barnds_icons/mercedes-benz-logo.png",
+    img: images.mercedes_benz,
   },
   {
     make: "Mercury",
@@ -1651,7 +1652,7 @@ export const cars = [
       "Villager",
       "Zephyr",
     ],
-    img: "../assets/car_barnds_icons/mercury-logo.png",
+    img: images.mercury,
   },
   {
     make: "Mitsubishi",
@@ -1679,7 +1680,7 @@ export const cars = [
       "Raider",
       "Sigma",
     ],
-    img: "../assets/car_barnds_icons/mitsubishi-logo.png",
+    img: images.mitsubishi,
   },
   {
     make: "Nissan",
@@ -1733,7 +1734,7 @@ export const cars = [
       "Terrano II",
       "Truck",
     ],
-    img: "../assets/car_barnds_icons/nissan-logo.png",
+    img: images.nissan,
   },
   {
     make: "Oldsmobile",
@@ -1767,22 +1768,22 @@ export const cars = [
       "Toronado",
       "Vista Cruiser",
     ],
-    img: "../assets/car_barnds_icons/oldsmobile-logo.png",
+    img: images.oldsmobile,
   },
   {
     make: "Opel",
     models: ["Calibra", "GT", "Kadett", "Manta", "Omega"],
-    img: "../assets/car_barnds_icons/opel-logo.png",
+    img: images.opel,
   },
   {
     make: "Pagani",
     models: ["Zonda", "Huayra"],
-    img: "../assets/car_barnds_icons/pagani-logo.png",
+    img: images.pagani,
   },
   {
     make: "Panoz",
     models: ["Esperante"],
-    img: "../assets/car_barnds_icons/panoz-logo.png",
+    img: images.panoz,
   },
   {
     make: "Peugeot",
@@ -1833,7 +1834,7 @@ export const cars = [
       "4008",
       "5008",
     ],
-    img: "../assets/car_barnds_icons/peugeot-logo.png",
+    img: images.peugeot,
   },
   {
     make: "Plymouth",
@@ -1864,7 +1865,7 @@ export const cars = [
       "Volare",
       "Voyager",
     ],
-    img: "../assets/car_barnds_icons/plymouth-logo.png",
+    img: images.plymouth,
   },
   {
     make: "Pontiac",
@@ -1900,7 +1901,7 @@ export const cars = [
       "Tempest",
       "Ventura",
     ],
-    img: "../assets/car_barnds_icons/pontiac-logo.png",
+    img: images.pontiac,
   },
   {
     make: "Porsche",
@@ -1930,7 +1931,7 @@ export const cars = [
       "Cayenne Hybrid",
       "Panamera Hybrid",
     ],
-    img: "../assets/car_barnds_icons/porsche-logo.png",
+    img: images.porsche,
   },
   {
     make: "Ram",
@@ -1947,7 +1948,7 @@ export const cars = [
       "4500 Chassis",
       "Dakota",
     ],
-    img: "../assets/car_barnds_icons/ram-logo.png",
+    img: images.ram,
   },
   {
     make: "Renault",
@@ -2103,12 +2104,12 @@ export const cars = [
       "Voiturette",
       "Wind",
     ],
-    img: "../assets/car_barnds_icons/renault-logo.png",
+    img: images.renault,
   },
   {
     make: "Rivian",
     models: ["R1T", "R1S"],
-    img: "../assets/car_barnds_icons/rivian-logo.png",
+    img: images.rivian,
   },
   {
     make: "Rolls-Royce",
@@ -2152,7 +2153,7 @@ export const cars = [
       "Rolls-Royce Boat Tail",
       "Rolls-Royce Spectre",
     ],
-    img: "../assets/car_barnds_icons/rolls-royce-logo.png",
+    img: images.rolls_royce,
   },
   {
     make: "Saab",
@@ -2191,12 +2192,12 @@ export const cars = [
       "9-4X ",
       "9-3",
     ],
-    img: "../assets/car_barnds_icons/saab-logo.png",
+    img: images.saab,
   },
   {
     make: "Saleen",
     models: ["S7"],
-    img: "../assets/car_barnds_icons/saleen-logo.png",
+    img: images.saleen,
   },
   {
     make: "Saturn",
@@ -2228,12 +2229,12 @@ export const cars = [
       "Aura",
       "Astra",
     ],
-    img: "../assets/car_barnds_icons/saturn-logo.png",
+    img: images.saturn,
   },
   {
     make: "Scion",
     models: ["xB", "xA", "tC", "xD", "FR-S"],
-    img: "../assets/car_barnds_icons/scion-logo.png",
+    img: images.scion,
   },
   {
     make: "SEAT",
@@ -2258,7 +2259,7 @@ export const cars = [
       "Tarraco",
       "Cupra Formentor",
     ],
-    img: "../assets/car_barnds_icons/seat-logo.png",
+    img: images.seat,
   },
   {
     make: "Škoda",
@@ -2278,7 +2279,7 @@ export const cars = [
       "Enyaq",
       "Kushaq​",
     ],
-    img: "../assets/car_barnds_icons/skoda-logo.png",
+    img: images.skoda,
   },
   {
     make: "Smart",
@@ -2302,12 +2303,12 @@ export const cars = [
       "EQ Fortwo Cabrio",
       "1",
     ],
-    img: "../assets/car_barnds_icons/smart-logo.png",
+    img: images.smart,
   },
   {
     make: "Spyker",
     models: ["C8", "C12 La Turbie", "C12 Zagato"],
-    img: "../assets/car_barnds_icons/spyker-logo.png",
+    img: images.spyker,
   },
   {
     make: "Subaru",
@@ -2346,7 +2347,7 @@ export const cars = [
       "Vivio",
       "XV",
     ],
-    img: "../assets/car_barnds_icons/subaru-logo.png",
+    img: images.subaru,
   },
   {
     make: "Suzuki",
@@ -2386,12 +2387,12 @@ export const cars = [
       "Wagon R",
       "Every",
     ],
-    img: "../assets/car_barnds_icons/suzuki-logo.png",
+    img: images.suzuki,
   },
   {
     make: "Tesla",
     models: ["Model S", "Model 3", "Model X", "Model Y", "Roadster"],
-    img: "../assets/car_barnds_icons/tesla-logo.png",
+    img: images.tesla,
   },
   {
     make: "Toyota",
@@ -2412,7 +2413,7 @@ export const cars = [
       "Supra",
       "GR Supra",
     ],
-    img: "../assets/car_barnds_icons/toyota-logo.png",
+    img: images.toyota,
   },
   {
     make: "Volkswagen",
@@ -2437,7 +2438,7 @@ export const cars = [
       "Tiguan",
       "Touareg",
     ],
-    img: "../assets/car_barnds_icons/volkswagen-logo.png",
+    img: images.volkswagen,
   },
   {
     make: "Volvo",
@@ -2472,6 +2473,6 @@ export const cars = [
       "V70 R",
       "XC",
     ],
-    img: "../assets/car_barnds_icons/volvo-logo.png",
+    img: images.volvo,
   },
 ];
