@@ -5,6 +5,7 @@ export const registration = (userData) =>
 
 export const login = (userData) => API.post(`api/user/login`, userData);
 
-export const refresh = () => API.post(`api/user/auth`);
+export const refresh = () =>
+  API.get(`api/user/refresh`, { withCredentials: true });
 
 export const logOut = () => API.post(`api/user/logout`);

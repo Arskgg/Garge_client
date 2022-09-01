@@ -1,21 +1,31 @@
 import "./App.scss";
 import AppRouter from "./components/AppRouter";
 import NavBar from "./components/NavBar/NavBar";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "./utils/constants";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { checkAuth } from "./store/userSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const location = useLocation();
-  const isAuth =
+  const isAuthPage =
     location.pathname !== LOGIN_ROUTE &&
     location.pathname !== REGISTRATION_ROUTE;
 
+  useEffect(() => {
+    if (localStorage.getItem("user")) dispatch(checkAuth(navigate));
+  }, [dispatch, navigate]);
+
   return (
     <>
-      {isAuth && <NavBar />}
-      <main className="page_content">
+      {isAuthPage && <NavBar />}
+      <section className="page_content">
         <AppRouter />
-      </main>
+      </section>
     </>
   );
 }

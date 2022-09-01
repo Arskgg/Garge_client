@@ -1,17 +1,20 @@
+import Resizer from "react-image-file-resizer";
 export const getBase64 = (files) => {
-  try {
-    let baseURL = [];
-
-    files.forEach((el) => {
-      let reader = new FileReader();
-      reader.readAsDataURL(el);
-      reader.onload = () => {
-        baseURL.push(reader.result);
-      };
-    });
-
-    return baseURL;
-  } catch (error) {
-    console.log(error);
-  }
+  return files.map(
+    (file) =>
+      new Promise((resolve) => {
+        Resizer.imageFileResizer(
+          file,
+          300,
+          300,
+          "JPEG",
+          100,
+          0,
+          (uri) => {
+            resolve(uri);
+          },
+          "base64"
+        );
+      })
+  );
 };

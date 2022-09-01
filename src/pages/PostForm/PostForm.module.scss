@@ -3,6 +3,7 @@
 .container {
   margin: 0 auto;
   max-width: 1440px;
+  padding-top: 50px;
 
   .card {
     padding: 0 20px;
@@ -96,10 +97,25 @@
     flex: 0 1 150px;
     height: 150px;
     position: relative;
+    cursor: pointer;
 
     &:hover img {
       top: -60px;
       filter: brightness(0.8) blur(1px);
+    }
+
+    &:hover svg {
+      z-index: 10;
+      bottom: 110px;
+    }
+
+    svg {
+      position: absolute;
+      color: white;
+      font-size: 50px;
+      bottom: 10px;
+      left: 50px;
+      transition: bottom 0.2s ease;
     }
 
     img {

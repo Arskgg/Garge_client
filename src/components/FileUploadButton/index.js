@@ -1,59 +1,23 @@
 import { useRef } from "react";
 import Button from "../Button";
-import Resizer from "react-image-file-resizer";
+import { getBase64 } from "../../utils/base64Converter";
 
-// const resizeFile = (file) =>
-//   new Promise((resolve) => {
-//     Resizer.imageFileResizer(
-//       file,
-//       300,
-//       300,
-//       "JPEG",
-//       100,
-//       0,
-//       (uri) => {
-//         resolve(uri);
-//       },
-//       "base64"
-//     );
-//   });
-
-const resizeFile = (files) => {
-  return files.map(
-    (file) =>
-      new Promise((resolve) => {
-        Resizer.imageFileResizer(
-          file,
-          1920,
-          1080,
-          "JPEG",
-          100,
-          0,
-          (uri) => {
-            resolve(uri);
-          },
-          "base64",
-          300,
-          300
-        );
-      })
-  );
-};
-
-const FileUploadButton = ({ name, onSelect }) => {
+const FileUploadButton = ({ name, onSelect, setSelectedImages }) => {
   const hiddenFileInput = useRef(null);
 
   const handleClick = (event) => {
     event.preventDefault();
     hiddenFileInput.current.click();
   };
+
   const handleChange = async (event) => {
     const filesUploaded = event.target.files;
     const arrOfFiles = Object.entries(filesUploaded).map((el) => el[1]);
+    onSelect(name, arrOfFiles);
 
-    const arrOfPromises = resizeFile(arrOfFiles);
-    Promise.all(arrOfPromises).then((el) => {
-      onSelect(name, el);
+    const arrOfResizeFilePromises = getBase64(arrOfFiles);
+    Promise.all(arrOfResizeFilePromises).then((img) => {
+      setSelectedImages(img);
     });
   };
 
@@ -65,6 +29,7 @@ const FileUploadButton = ({ name, onSelect }) => {
         type="file"
         ref={hiddenFileInput}
         onChange={handleChange}
+        accept="image/*"
         style={{ display: "none" }}
       />
     </>
