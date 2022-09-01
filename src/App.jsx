@@ -21,12 +21,12 @@ function App() {
   }, [dispatch, navigate]);
 
   return (
-    <>
+    <div className="wrapper">
       {isAuthPage && <NavBar />}
       <section className="page_content">
         <AppRouter />
       </section>
-    </>
+    </div>
   );
 }
 
