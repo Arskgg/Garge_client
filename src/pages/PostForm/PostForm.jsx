@@ -8,12 +8,19 @@ import { Divider, MenuItem } from "@mui/material";
 import FileUploadButton from "../../components/FileUploadButton";
 import Button from "../../components/Button";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import { createPost } from "../../services/postService";
-import Loading from "../../components/Loading/Loading";
+import { useCreatePostMutation } from "../../services/postApiSlice";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/authSlice";
+import { useNavigate } from "react-router-dom";
+import { HOME_ROUTE, LOGIN_ROUTE } from "../../utils/constants";
+
 const PostForm = () => {
   const [models, setModels] = useState([]);
   const [carLogo, setCarLogo] = useState(null);
   const [selectedImgs, setSelectedImgs] = useState([]);
+  const navigate = useNavigate();
+  const [createPost] = useCreatePostMutation();
+  const user = useSelector(selectCurrentUser);
   const [carForm, setCarForm] = useState({
     carMake: "",
     carModel: "",
@@ -66,10 +73,7 @@ const PostForm = () => {
     try {
       const formData = new FormData();
 
-      formData.append(
-        "user_id",
-        JSON.parse(localStorage.getItem("user")).user.id
-      );
+      formData.append("user_id", user.id);
       formData.append("carMake", carForm.carMake);
       formData.append("carModel", carForm.carModel);
       formData.append("type", carForm.type);
@@ -83,12 +87,14 @@ const PostForm = () => {
       carForm.imgs.forEach((img) => formData.append("imgs", img));
       formData.append("tags", JSON.stringify(carForm.tags));
 
-      const createdPost = await createPost(formData);
+      await createPost(formData).unwrap();
 
+      // const createdPost = await createPost(formData).unwrap();
       //Save new post inside ReDux
-      console.log(createdPost);
+      // navigate(HOME_ROUTE);
     } catch (error) {
-      console.log(error);
+      console.log("Session expiered! ");
+      navigate(LOGIN_ROUTE);
     }
   };
 

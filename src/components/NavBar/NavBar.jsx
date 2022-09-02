@@ -14,18 +14,25 @@ import {
   REGISTRATION_ROUTE,
   USER_ROUTE,
 } from "../../utils/constants";
-import Loading from "../Loading/Loading";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logOutUser } from "../../store/userSlice";
+import { useLogOutMutation } from "../../services/authApiSlice";
+import { logOut } from "../../store/authSlice";
 
 const NavBar = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [logOutFromServer] = useLogOutMutation();
 
   const [toggleUserMenu, setToggleUserMenu] = useState(false);
   const user = localStorage.getItem("user");
 
-  const logOutHandler = () => {
-    dispatch(logOutUser());
+  const handleLogOut = async () => {
+    try {
+      await logOutFromServer();
+      dispatch(logOut());
+      navigate(LOGIN_ROUTE);
+    } catch (error) {}
   };
 
   return (
@@ -67,7 +74,7 @@ const NavBar = () => {
                         </Link>
                       </li>
                       <li className="profile-menu__link">
-                        <Link to={LOGIN_ROUTE} onClick={logOutHandler}>
+                        <Link to={LOGIN_ROUTE} onClick={handleLogOut}>
                           <LogoutIcon />
                           Log Out
                         </Link>

@@ -5,11 +5,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "./utils/constants";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { checkAuth } from "./store/userSlice";
+import { useCheckAuthMutation } from "./services/authApiSlice";
+import { setCredentials } from "./store/authSlice";
 
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [checkAuth] = useCheckAuthMutation();
 
   const location = useLocation();
   const isAuthPage =
@@ -17,8 +19,17 @@ function App() {
     location.pathname !== REGISTRATION_ROUTE;
 
   useEffect(() => {
-    if (localStorage.getItem("user")) dispatch(checkAuth(navigate));
-  }, [dispatch, navigate]);
+    if (localStorage.getItem("user")) {
+      const checkUserAuth = async () => {
+        try {
+          const { data } = await checkAuth();
+          dispatch(setCredentials({ token: data.token }));
+        } catch (error) {}
+      };
+
+      checkUserAuth();
+    }
+  }, [dispatch, checkAuth]);
 
   return (
     <div className="wrapper">
@@ -32,4 +43,4 @@ function App() {
 
 export default App;
 
-//think about token and user inside redux store. Do i have to use it inside if i use local storage?
+// Implement checkAuth and RefreshToken
