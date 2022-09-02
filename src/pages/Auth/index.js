@@ -6,24 +6,35 @@ import Button from "../../components/Button";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Auth.module.scss";
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "../../utils/constants";
+import {
+  HOME_ROUTE,
+  LOGIN_ROUTE,
+  REGISTRATION_ROUTE,
+} from "../../utils/constants";
+import Loading from "../../components/Loading";
 import { useDispatch } from "react-redux";
-import { registerUser, loginUser } from "../../store/userSlice";
 import { useNavigate } from "react-router-dom";
+import { setCredentials } from "../../store/authSlice";
+import {
+  useLogInMutation,
+  useRegistrationMutation,
+} from "../../services/authApiSlice";
 
 const Auth = () => {
+  const location = useLocation();
+  const isLogin = location.pathname === LOGIN_ROUTE;
   const [showPassword, setShowPassword] = useState(false);
+  const [login, {}] = useLogInMutation();
+  const [registration, { isLoading }] = useRegistrationMutation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [userData, setUserData] = useState({
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
-  const location = useLocation();
-  const isLogin = location.pathname === LOGIN_ROUTE;
-  const navigate = useNavigate();
-
-  const dispatch = useDispatch();
 
   const handleShowPassword = () => {
     setShowPassword((prev) => !prev);
@@ -37,14 +48,23 @@ const Auth = () => {
     e.preventDefault();
 
     if (isLogin) {
-      dispatch(loginUser({ userData, navigate }));
+      try {
+        const user = await login(userData).unwrap();
+        dispatch(setCredentials(user));
+        navigate(HOME_ROUTE);
+      } catch (error) {}
     } else {
-      dispatch(registerUser({ userData, navigate }));
+      try {
+        const user = await registration(userData).unwrap();
+        dispatch(setCredentials(user));
+        navigate(HOME_ROUTE);
+      } catch (error) {}
     }
   };
 
   return (
     <div className={styles.auth}>
+      {isLoading && <Loading />}
       <div className={styles.auth__container}>
         <div className={styles.auth__about}>
           <div className={styles.auth__logo}>
