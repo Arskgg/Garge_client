@@ -9,7 +9,10 @@ export const postApiSlice = apiSlice.injectEndpoints({
         body: formData,
       }),
     }),
+    getPosts: builder.query({
+      query: () => ({ url: "api/posts" }),
+    }),
   }),
 });
 
-export const { useCreatePostMutation } = postApiSlice;
+export const { useCreatePostMutation, useGetPostsQuery } = postApiSlice;

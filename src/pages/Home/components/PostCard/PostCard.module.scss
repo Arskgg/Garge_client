@@ -1,0 +1,142 @@
+.card {
+  height: 333px;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &:hover &__img {
+    filter: brightness(0.7) blur(1px);
+  }
+
+  &:hover &__details {
+    top: 20px;
+    opacity: 1;
+  }
+
+  &:hover &__car_info {
+    bottom: 10px;
+    opacity: 1;
+  }
+
+  &__container {
+    // .card__img
+    position: relative;
+    overflow: hidden;
+    min-width: 100%;
+    height: 100%;
+    background-color: var(--primary-light-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: padding 0.5s ease;
+    top: 0;
+    left: 0;
+    &:hover {
+      padding: 4px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    transition: filter 0.5s ease;
+
+    img {
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // .card__details
+
+  &__details {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    top: -60px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  // .card__user_img
+
+  &__user_img {
+    margin-left: 20px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+
+    img {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: outline 0.3s ease;
+      &:hover {
+        outline: 2px solid var(--primary-light-color);
+      }
+    }
+  }
+
+  // .card__username
+
+  &__username {
+    font-size: 16;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--primary-light-color);
+    }
+  }
+
+  // .card__car_info
+
+  &__car_info {
+    height: 60px;
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  // .card__car_logo
+
+  &__car_logo {
+    width: 80px;
+    height: 60px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // .card__car_make
+
+  &__car_make {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  // .card__car_model
+
+  &__car_model {
+    font-size: 18px;
+    font-weight: 100;
+    color: #fff;
+    text-transform: uppercase;
+  }
+}
