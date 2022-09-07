@@ -1,0 +1,270 @@
+@import "../../../../breakpoints.scss";
+
+.header {
+  background-color: black;
+  overflow: hidden;
+  height: 100vh;
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    z-index: 2;
+
+    @include lg {
+      display: block;
+    }
+  }
+
+  // .header__car_info
+
+  &__car_info {
+    flex: 0 1 35%;
+    z-index: 5;
+  }
+
+  // .header__car_content
+
+  &__car_content {
+    flex: 0 1 65%;
+    max-width: 100%;
+    height: 100%;
+
+    @include lg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  // .header__car_img
+
+  &__car_img {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // .header__car_tech_specs
+
+  &__car_tech_specs {
+  }
+
+  // .header__grradient
+
+  &__grradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(
+      to right,
+      rgba(10, 10, 10, 0.9),
+      rgb(10, 10, 10),
+      rgb(10, 10, 10),
+      rgb(10, 10, 10),
+      rgb(10, 10, 10),
+      rgb(10, 10, 10),
+      rgb(20, 20, 20, 0.7),
+      rgb(20, 20, 20, 0.5),
+      rgb(20, 20, 20, 0.1),
+      rgb(30, 30, 30, 0.1),
+      rgb(40, 40, 40, 0.1),
+      transparent,
+      transparent,
+      transparent
+    );
+    @include lg {
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(
+        rgba(0, 0, 0, 0.9),
+        transparent,
+        rgba(0, 0, 0, 0.9)
+      );
+      z-index: 2;
+    }
+  }
+}
+.car_info {
+  // .car_info__car_logo
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 100%;
+  padding: 16px 24px;
+  color: white;
+
+  @include lg {
+    justify-content: space-between;
+  }
+
+  @include xs {
+    justify-content: space-between;
+  }
+
+  &__car_logo {
+    margin-bottom: 40px;
+
+    img {
+      width: 160px;
+      height: 120px;
+    }
+
+    @include lg {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__text_container {
+    text-align: center;
+    @include lg {
+      flex: 0 1 auto;
+    }
+  }
+
+  // .car_info__car_make
+
+  &__car_make {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 80px;
+    @include lg {
+      font-size: 60px;
+    }
+
+    @include xs {
+      font-size: 40px;
+    }
+  }
+
+  // .car_info__car_model
+
+  &__car_model {
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 48px;
+    @include lg {
+      font-size: 28px;
+    }
+
+    @include xs {
+      font-size: 18.5px;
+    }
+  }
+
+  // .car_info__letter
+
+  &__letter {
+    position: absolute;
+    max-height: 100%;
+    color: rgba(255, 255, 255, 0.1);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 960px;
+    height: 100%;
+    bottom: -7%;
+    cursor: default;
+
+    @include lg {
+      display: none;
+    }
+  }
+}
+.tech_specs {
+  // .tech_specs__acceleration
+  position: absolute;
+  display: flex;
+  color: white;
+  bottom: 40px;
+  right: 40px;
+  gap: 50px;
+  text-align: center;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 5;
+
+  @include lg {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-between;
+    background-color: transparent;
+  }
+
+  &__acceleration {
+    position: relative;
+  }
+
+  // .tech_specs__hp
+
+  &__hp {
+    position: relative;
+  }
+
+  // .tech_specs__top_speed
+
+  &__top_speed {
+    position: relative;
+  }
+
+  &__acceleration,
+  &__hp,
+  &__top_speed {
+    @include lg {
+      flex: 0 1 33.333%;
+    }
+  }
+
+  &__hp::after,
+  &__top_speed::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: #fff;
+    top: 0;
+    left: -25px;
+  }
+
+  // .tech_specs__title
+
+  &__title {
+    font-weight: 500;
+    font-size: 32px;
+    margin-bottom: 5px;
+    @include sm {
+      font-size: 24px;
+    }
+
+    @include xs {
+      font-size: 16px;
+      line-height: 12px;
+    }
+  }
+
+  // .tech_specs__subtitle
+
+  &__subtitle {
+    text-transform: uppercase;
+    font-weight: 100;
+
+    @include xs {
+      font-size: 12px;
+      line-height: 12px;
+    }
+  }
+}
+
+//Make Adaptive

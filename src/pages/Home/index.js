@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <div>
-      <PostList posts={data.data} />
+      <PostList posts={data.posts} />
     </div>
   );
 };

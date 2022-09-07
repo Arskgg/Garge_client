@@ -7,7 +7,7 @@ import {
   HOME_ROUTE,
   LOGIN_ROUTE,
   POST_CREATE_ROUTE,
-  POST_ROUTE,
+  POST_DETAILS_ROUTE,
   REGISTRATION_ROUTE,
   USER_ROUTE,
 } from "./utils/constants";
@@ -18,7 +18,7 @@ export const authRoutes = [
 
 export const publicRoutes = [
   { path: HOME_ROUTE, Component: <Home /> },
-  { path: POST_ROUTE, Component: <PostDetails /> },
+  { path: POST_DETAILS_ROUTE, Component: <PostDetails /> },
   { path: USER_ROUTE, Component: <UserProfile /> },
   { path: LOGIN_ROUTE, Component: <Auth /> },
   { path: REGISTRATION_ROUTE, Component: <Auth /> },

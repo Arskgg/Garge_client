@@ -153,3 +153,5 @@ export const images = {
   volkswagen,
   volvo,
 };
+
+export const getCarLogoImg = (carMake) => images[carMake.toLowerCase()];

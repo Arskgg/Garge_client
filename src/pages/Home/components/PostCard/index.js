@@ -1,14 +1,22 @@
 import React from "react";
 import styles from "./PostCard.module.scss";
 import { cars } from "../../../../data/brands";
+import { POST_DETAILS_ROUTE } from "../../../../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const PostCard = ({ post }) => {
+  const navigate = useNavigate();
+
   const carLogo = cars.find(
     (car) => car.make.toLowerCase() === post.carMake.toLowerCase()
   )?.img;
 
+  const handleOpenPost = (e) => {
+    navigate("/post/" + post._id);
+  };
+
   return (
-    <div className={styles.card}>
+    <div onClick={handleOpenPost} className={styles.card}>
       <div className={styles.card__container}>
         <div className={styles.card__img}>
           <img

@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="wrapper">
-      {isAuthPage && <NavBar />}
+      {/* {isAuthPage && <NavBar />} */}
       <section className="page_content">
         <AppRouter />
       </section>

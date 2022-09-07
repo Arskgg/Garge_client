@@ -1,0 +1,27 @@
+@import "../../../../breakpoints.scss";
+.car_info {
+  background-color: rgba(10, 10, 10);
+
+  &__container {
+    display: flex;
+    height: 100%;
+    padding: 3%;
+    @include sm {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__tech_specs {
+    flex: 1 0 30%;
+    width: 100%;
+  }
+
+  &__comments {
+    flex: 1 1 70%;
+    padding-left: 5%;
+
+    @include sm {
+      padding-left: 0;
+    }
+  }
+}

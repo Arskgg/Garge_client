@@ -1,0 +1,66 @@
+.card {
+  // .card__container
+  background: rgb(20, 20, 20);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.1) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  &__container {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+    align-items: center;
+    outline: 2px solid var(--primary-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  // .card__title
+
+  &__title {
+    flex: 0 1 10%;
+    font-weight: 300;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
+  // .card__tech-specs
+
+  &__tech_specs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  &__description_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  &__title_description {
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  // .card__description
+
+  &__description {
+    overflow: hidden;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}

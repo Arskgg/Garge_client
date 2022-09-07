@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import Button from "../Button";
-import { getBase64 } from "../../utils/base64Converter";
+import { resizeImage } from "../../utils/imageResizer";
 
 const FileUploadButton = ({ name, onSelect, setSelectedImages }) => {
   const hiddenFileInput = useRef(null);
@@ -13,11 +13,15 @@ const FileUploadButton = ({ name, onSelect, setSelectedImages }) => {
   const handleChange = async (event) => {
     const filesUploaded = event.target.files;
     const arrOfFiles = Object.entries(filesUploaded).map((el) => el[1]);
-    onSelect(name, arrOfFiles);
 
-    const arrOfResizeFilePromises = getBase64(arrOfFiles);
-    Promise.all(arrOfResizeFilePromises).then((img) => {
-      setSelectedImages(img);
+    const arrOfResizeFile = resizeImage(arrOfFiles, "file", 1920, 1080);
+    Promise.all(arrOfResizeFile).then((imgs) => {
+      onSelect(name, imgs);
+    });
+
+    const arrOfResizeFileBase64 = resizeImage(arrOfFiles, "base64", 300, 300);
+    Promise.all(arrOfResizeFileBase64).then((imgs) => {
+      setSelectedImages(imgs);
     });
   };
 
