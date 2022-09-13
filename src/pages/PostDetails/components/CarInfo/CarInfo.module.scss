@@ -1,6 +1,8 @@
 @import "../../../../breakpoints.scss";
 .car_info {
+  scroll-snap-align: start;
   background-color: rgba(10, 10, 10);
+  min-height: 100vh;
 
   &__container {
     display: flex;

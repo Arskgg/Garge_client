@@ -1,6 +1,6 @@
 import "./App.scss";
 import AppRouter from "./components/AppRouter";
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./components/NavBar";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "./utils/constants";
 import { useEffect } from "react";
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="wrapper">
-      {/* {isAuthPage && <NavBar />} */}
+      {isAuthPage && <NavBar />}/
       <section className="page_content">
         <AppRouter />
       </section>

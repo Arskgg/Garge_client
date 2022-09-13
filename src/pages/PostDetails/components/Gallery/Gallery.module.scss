@@ -1,4 +1,6 @@
 .gallery {
+  scroll-snap-align: start;
+
   background: linear-gradient(
     rgba(10, 10, 10),
     rgba(10, 10, 10, 0.8),
@@ -13,5 +15,4 @@
   padding: 20px 0 20px 0;
   width: calc(99vw - 20px);
   height: 100vh;
-  margin: 0 auto;
 }

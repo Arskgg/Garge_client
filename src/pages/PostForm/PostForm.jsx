@@ -12,7 +12,7 @@ import { useCreatePostMutation } from "../../services/postApiSlice";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/authSlice";
 import { useNavigate } from "react-router-dom";
-import { HOME_ROUTE, LOGIN_ROUTE } from "../../utils/constants";
+import { LOGIN_ROUTE } from "../../utils/constants";
 
 const PostForm = () => {
   const [models, setModels] = useState([]);
@@ -233,6 +233,7 @@ const PostForm = () => {
                 ))}
               </div>
               <FileUploadButton
+                multiple
                 name="imgs"
                 onSelect={handleAutocompleteChange}
                 setSelectedImages={setSelectedImgs}

@@ -1,0 +1,128 @@
+@import "../../../../breakpoints.scss";
+
+.modal {
+  position: fixed;
+  background-color: rgba(10, 10, 10, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 55;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 450px;
+
+    @include xs {
+      width: 100%;
+    }
+
+    hr {
+      width: 100%;
+    }
+  }
+
+  .title__container {
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    position: relative;
+    width: 100%;
+    text-align: center;
+
+    .title__content {
+    }
+
+    .title__close_modal_icon {
+      position: absolute;
+      top: calc(50% - 0.6rem);
+      right: 1rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .upload_btn {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .remove_btn {
+    width: 100%;
+    padding: 1rem 0;
+    color: rgb(215, 58, 58);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .cancel_btn {
+    width: 100%;
+    padding: 1rem 0;
+    font-weight: 400;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .user_list {
+    width: 450px;
+    height: 300px;
+    overflow-y: scroll;
+
+    @include xs {
+      width: 100%;
+    }
+  }
+}
+
+.user_modal {
+  padding: 1rem;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__user_info_container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__username {
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  &__button {
+  }
+}

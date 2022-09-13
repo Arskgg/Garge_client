@@ -4,6 +4,7 @@
   background-color: black;
   overflow: hidden;
   height: 100vh;
+  scroll-snap-align: start;
 
   &__container {
     position: relative;

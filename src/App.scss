@@ -53,12 +53,14 @@ section {
 html,
 body {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: Roboto;
+  font-family: Roboto, serif;
   font-weight: 400;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 // .page_content {

@@ -1,5 +1,5 @@
 import React from "react";
-import PostCard from "../PostCard";
+import PostCard from "../../../../components/PostCard";
 import styles from "./PostList.module.scss";
 import { useNavigate } from "react-router-dom";
 import { POST_DETAILS_ROUTE } from "../../../../utils/constants";

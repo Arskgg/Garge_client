@@ -1,0 +1,23 @@
+.profile {
+  // .profile__container
+  background: linear-gradient();
+
+  &__container {
+    max-width: 1424px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  // .profile__user-info
+
+  &__user-info {
+  }
+
+  // .profile__post-list
+
+  &__post-list {
+  }
+}

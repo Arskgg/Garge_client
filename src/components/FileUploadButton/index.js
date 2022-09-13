@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Button from "../Button";
 import { resizeImage } from "../../utils/imageResizer";
 
-const FileUploadButton = ({ name, onSelect, setSelectedImages }) => {
+const FileUploadButton = ({ name, onSelect, multiple, setSelectedImages }) => {
   const hiddenFileInput = useRef(null);
 
   const handleClick = (event) => {
@@ -19,17 +19,21 @@ const FileUploadButton = ({ name, onSelect, setSelectedImages }) => {
       onSelect(name, imgs);
     });
 
-    const arrOfResizeFileBase64 = resizeImage(arrOfFiles, "base64", 300, 300);
-    Promise.all(arrOfResizeFileBase64).then((imgs) => {
-      setSelectedImages(imgs);
-    });
+    if (setSelectedImages) {
+      const arrOfResizeFileBase64 = resizeImage(arrOfFiles, "base64", 300, 300);
+      Promise.all(arrOfResizeFileBase64).then((imgs) => {
+        setSelectedImages(imgs);
+      });
+    }
   };
 
   return (
     <>
-      <Button onClick={handleClick}>Upload images</Button>
+      <Button onClick={handleClick}>{`Upload image${
+        multiple ? "s" : ""
+      }`}</Button>
       <input
-        multiple
+        multiple={multiple}
         type="file"
         ref={hiddenFileInput}
         onChange={handleChange}

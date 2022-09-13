@@ -4,6 +4,7 @@ import Loading from "../../components/Loading";
 import Header from "./components/Header";
 import Gallery from "./components/Gallery";
 import CarInfo from "./components/CarInfo";
+import styles from "./PostDetails.module.scss";
 
 function PostDetails() {
   const { id } = useParams();
@@ -17,11 +18,11 @@ function PostDetails() {
   );
 
   return (
-    <>
+    <div className={styles.post_details}>
       <Header post={post} />
       <Gallery images={imagesLinks} />
       <CarInfo post={post} />
-    </>
+    </div>
   );
 }
 

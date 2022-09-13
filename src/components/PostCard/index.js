@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "./PostCard.module.scss";
-import { cars } from "../../../../data/brands";
-import { POST_DETAILS_ROUTE } from "../../../../utils/constants";
+import { cars } from "../../data/brands";
 import { useNavigate } from "react-router-dom";
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, noUser }) => {
   const navigate = useNavigate();
 
   const carLogo = cars.find(
@@ -25,15 +24,17 @@ const PostCard = ({ post }) => {
           />
         </div>
 
-        <div className={styles.card__details}>
-          <div className={styles.card__user_img}>
-            <img
-              src={process.env.REACT_APP_API_URL + post.imgs[0]}
-              alt={post.imgs[0]}
-            />
+        {!noUser && (
+          <div className={styles.card__details}>
+            <div className={styles.card__user_img}>
+              <img
+                src={process.env.REACT_APP_API_URL + post.imgs[0]}
+                alt={post.imgs[0]}
+              />
+            </div>
+            <div className={styles.card__username}>username</div>
           </div>
-          <div className={styles.card__username}>username</div>
-        </div>
+        )}
 
         <div className={styles.card__car_info}>
           {carLogo && (

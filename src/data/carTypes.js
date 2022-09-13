@@ -1,7 +1,7 @@
 export const carTypes = [
   "Sedan",
-  "Crossover (CUV)",
-  "Sport Utility Vehicle (SUV)",
+  "CUV",
+  "SUV",
   "Hatchback",
   "Station Wagon",
   "Coupe",
