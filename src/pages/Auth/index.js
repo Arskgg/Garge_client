@@ -72,7 +72,7 @@ const Auth = () => {
           </div>
           <div className={styles.auth__title}>
             <div className={styles.auth__description}>
-              <h2>Social networks for fans of unusual cars</h2>
+              <h2>Social network for fans of unusual cars</h2>
             </div>
 
             <div className={styles.auth__slogan}>

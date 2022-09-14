@@ -2,7 +2,12 @@
 
 .card {
   // .card__container
-  margin-top: 4rem;
+  margin-top: 2rem;
+
+  @include xs {
+    margin-top: 1rem;
+  }
+
   &__container {
     display: flex;
     width: 100%;

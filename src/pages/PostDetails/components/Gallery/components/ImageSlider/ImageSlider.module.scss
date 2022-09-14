@@ -1,7 +1,10 @@
+@import "../../../../../../breakpoints.scss";
+
 .slider__wrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  justify-content: center;
 }
 
 .slider {
@@ -9,9 +12,20 @@
   position: relative;
   flex: 0 1 90%;
   width: 80%;
-  height: 80%;
   align-self: center;
   border-radius: 1rem;
+
+  @include lg {
+    width: 100%;
+  }
+
+  @include xl {
+    width: 95%;
+  }
+
+  @include sm {
+    flex: 0 1 40%;
+  }
 
   & .slide_list {
     display: flex;
@@ -50,10 +64,18 @@
     background-color: rgba(255, 255, 255, 0.2);
     cursor: pointer;
 
+    @include sm {
+      width: 40px;
+      height: 40px;
+    }
+
     svg {
       font-size: 60px;
       transition: all 0.3s ease;
       z-index: 5;
+      @include sm {
+        font-size: 40px;
+      }
     }
 
     :hover {
@@ -68,10 +90,14 @@
 }
 
 .images {
-  flex: 0 1 10%;
+  flex: 1 1 10%;
   display: flex;
-
   gap: 10px;
+  justify-content: center;
+  @include sm {
+    flex-wrap: wrap;
+    flex: 1 0 10%;
+  }
 
   & .image__container {
     cursor: pointer;
@@ -90,6 +116,10 @@
     flex: 0 1 20%;
     position: relative;
     border-radius: 4px;
+
+    @include sm {
+      flex: 0 0 20%;
+    }
 
     img {
       position: absolute;

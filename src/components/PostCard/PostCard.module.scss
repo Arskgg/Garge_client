@@ -1,3 +1,5 @@
+@import "../../breakpoints.scss";
+
 .card {
   height: 333px;
   width: 100%;
@@ -14,6 +16,11 @@
 
   &:hover &__car_info {
     bottom: 10px;
+    opacity: 1;
+  }
+
+  &:hover &__edit_icon {
+    right: 1rem;
     opacity: 1;
   }
 
@@ -51,7 +58,6 @@
 
   &__details {
     position: absolute;
-    width: 100%;
     height: 60px;
     top: -60px;
     left: 0;
@@ -60,6 +66,15 @@
     gap: 10px;
     opacity: 0;
     transition: all 0.5s ease;
+    padding: 0.5rem;
+
+    @include lg {
+      top: 20px;
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-bottom-right-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
   }
 
   // .card__user_img
@@ -109,6 +124,12 @@
     gap: 10px;
     opacity: 0;
     transition: all 0.5s ease;
+
+    @include lg {
+      bottom: 0;
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
   }
 
   // .card__car_logo
@@ -138,5 +159,34 @@
     font-weight: 100;
     color: #fff;
     text-transform: uppercase;
+  }
+
+  &__edit_icon {
+    position: absolute;
+    top: 1rem;
+    right: -3rem;
+    color: #fff;
+    transition: all 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    padding: 0.5rem;
+    opacity: 0;
+
+    @include lg {
+      bottom: 0;
+      opacity: 1;
+      right: 1rem;
+    }
+
+    &:hover {
+      color: var(--primary-color);
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

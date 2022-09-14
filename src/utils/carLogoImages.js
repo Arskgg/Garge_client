@@ -154,4 +154,5 @@ export const images = {
   volvo,
 };
 
-export const getCarLogoImg = (carMake) => images[carMake.toLowerCase()];
+export const getCarLogoImg = (carMake) =>
+  images[carMake.toLowerCase().replaceAll(/-/gi, "_")];

@@ -10,6 +10,7 @@
 
   @include sm {
     flex-wrap: wrap;
+    height: 130px;
   }
 
   &__container {
@@ -37,9 +38,13 @@
     }
 
     @include sm {
-      flex: 0 1 50%;
+      flex: 0 1 150px;
       order: 1;
-      flex-basis: 150px;
+    }
+
+    @include xs {
+      flex: 0 1 110px;
+      order: 1;
     }
   }
 
@@ -91,6 +96,22 @@
   color: #fff;
   gap: 40px;
   margin: 0 0 0 40px;
+
+  @include xs {
+    gap: 30px;
+  }
+
+  @include xxs {
+    gap: 14px;
+  }
+
+  @include sm {
+    flex: 1 50%;
+    order: 2;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+  }
 
   &__create-post {
     cursor: pointer;
@@ -149,18 +170,6 @@
     &:hover {
       color: var(--primary-color);
     }
-  }
-
-  @include xs {
-    gap: 17px;
-  }
-
-  @include sm {
-    flex: 1 50%;
-    order: 2;
-    margin: 0;
-    width: 20px;
-    height: 20px;
   }
 }
 .profile-menu {

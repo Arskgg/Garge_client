@@ -14,9 +14,10 @@ function App() {
   const [checkAuth] = useCheckAuthMutation();
 
   const location = useLocation();
-  const isAuthPage =
+  const isNavBar =
     location.pathname !== LOGIN_ROUTE &&
-    location.pathname !== REGISTRATION_ROUTE;
+    location.pathname !== REGISTRATION_ROUTE &&
+    location.pathname.slice(0, 5) !== "/post";
 
   useEffect(() => {
     if (localStorage.getItem("user")) {
@@ -33,10 +34,10 @@ function App() {
 
   return (
     <div className="wrapper">
-      {isAuthPage && <NavBar />}/
-      <section className="page_content">
+      {isNavBar && <NavBar />}
+      <main className="page_content">
         <AppRouter />
-      </section>
+      </main>
     </div>
   );
 }

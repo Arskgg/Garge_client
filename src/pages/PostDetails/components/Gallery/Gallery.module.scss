@@ -1,3 +1,4 @@
+@import "../../../../breakpoints.scss";
 .gallery {
   scroll-snap-align: start;
 
@@ -12,7 +13,11 @@
 }
 
 .image_slider_container {
-  padding: 20px 0 20px 0;
-  width: calc(99vw - 20px);
+  // padding: 20px 0 20px 0;
   height: 100vh;
+  padding: 2rem;
+
+  @include xs {
+    padding: 1rem;
+  }
 }

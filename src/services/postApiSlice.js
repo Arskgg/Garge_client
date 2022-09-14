@@ -21,8 +21,18 @@ export const postApiSlice = apiSlice.injectEndpoints({
       invalidatesTags: [{ type: "Posts", id: "LIST" }],
     }),
 
+    updatePost: builder.mutation({
+      query: ({ id, formData }) => ({
+        url: `api/posts/${id}`,
+        method: "PATCH",
+        body: formData,
+      }),
+      invalidatesTags: [{ type: "Posts", id: "LIST" }],
+    }),
+
     getPostById: builder.query({
       query: (id) => ({ url: `api/posts/${id}` }),
+      providesTags: [{ type: "Posts", id: "LIST" }],
     }),
 
     getUserPosts: builder.query({
@@ -36,4 +46,5 @@ export const {
   useGetPostsQuery,
   useGetPostByIdQuery,
   useGetUserPostsQuery,
+  useUpdatePostMutation,
 } = postApiSlice;

@@ -1,7 +1,8 @@
 import { Autocomplete, Chip } from "@mui/material";
-import StyledInput from "../../../../components/Input/StyledInput";
+import StyledInput from "../../components/Input/StyledInput";
 
 const SelectorInput = ({
+  value,
   options,
   handleChange,
   multiple,
@@ -15,6 +16,7 @@ const SelectorInput = ({
       sx={{ backgroundColor: "#fff" }}
       id="free-solo-demo2"
       freeSolo
+      value={value}
       multiple={multiple}
       options={options}
       onChange={(e, value) => tags && handleChange(name, value)}

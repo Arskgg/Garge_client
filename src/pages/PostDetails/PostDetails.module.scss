@@ -1,5 +1,12 @@
+@import "../../breakpoints.scss";
+
 .post_details {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
+  margin-top: -120px;
+
+  @include sm {
+    margin-top: -150px;
+  }
 }

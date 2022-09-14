@@ -63,15 +63,11 @@ body {
   scroll-behavior: smooth;
 }
 
-// .page_content {
-//   padding-top: 120px;
-//   margin: 0 auto;
+.page_content {
+  padding-top: 120px;
+  margin: 0 auto;
 
-//   @include sm {
-//     padding-top: 220px;
-//   }
-
-//   @include xs {
-//     padding-top: 160px;
-//   }
-// }
+  @include sm {
+    padding-top: 150px;
+  }
+}

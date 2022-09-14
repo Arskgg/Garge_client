@@ -1,13 +1,12 @@
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import styles from "./UserInfoCard.module.scss";
-import img from "../../../../assets/barnd/garage-logo.png";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../../store/authSlice";
 import Button from "../../../../components/Button";
 import { useFollowUserMutation } from "../../../../services/authApiSlice";
-import FollowersModal from "../FollowersModal";
 import { useState } from "react";
 import UserImg from "../../../../components/UserImg";
+import ModalCard from "../ModalCard";
 
 const UserInfoCard = ({ user, numberOfPosts }) => {
   const [toggleModal, setToggleModal] = useState(false);
@@ -107,7 +106,7 @@ const UserInfoCard = ({ user, numberOfPosts }) => {
         </div>
       </div>
 
-      <FollowersModal
+      <ModalCard
         show={toggleModal}
         user={user}
         close={closeModal}
