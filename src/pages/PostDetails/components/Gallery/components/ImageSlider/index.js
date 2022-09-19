@@ -125,20 +125,24 @@ const ImageSlider = ({ images, width, height, autoPlay, autoPlayTime }) => {
         >
           <SlidesList />
 
-          <div
-            className={styles.slider__left_arrow}
-            onClick={() => changeSlide(-1)}
-          >
-            <ChevronLeftIcon />
-          </div>
-          <div
-            className={styles.slider__right_arrow}
-            onClick={() => changeSlide(1)}
-          >
-            <ChevronRightIcon />
-          </div>
+          {images.length > 1 && (
+            <>
+              <div
+                className={styles.slider__left_arrow}
+                onClick={() => changeSlide(-1)}
+              >
+                <ChevronLeftIcon />
+              </div>
+              <div
+                className={styles.slider__right_arrow}
+                onClick={() => changeSlide(1)}
+              >
+                <ChevronRightIcon />
+              </div>
+            </>
+          )}
         </div>
-        <ImagesGallery />
+        {images.length > 1 && <ImagesGallery />}
       </SliderContext.Provider>
     </div>
   );

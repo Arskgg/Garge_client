@@ -22,9 +22,16 @@ import {
 
 const Auth = () => {
   const location = useLocation();
-  const isLogin = location.pathname === LOGIN_ROUTE;
+  const [isLogin, setIsLogin] = useState(location.pathname === LOGIN_ROUTE);
+  const [authError, setAuthError] = useState(null);
+  const [validationError, setValidationError] = useState({
+    username: false,
+    email: false,
+    password: false,
+    confirmPassword: false,
+  });
   const [showPassword, setShowPassword] = useState(false);
-  const [login, {}] = useLogInMutation();
+  const [login] = useLogInMutation();
   const [registration, { isLoading }] = useRegistrationMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -35,6 +42,12 @@ const Auth = () => {
     password: "",
     confirmPassword: "",
   });
+
+  const handleAuthChange = () => {
+    setIsLogin((prev) => !prev);
+    setAuthError(null);
+    setUserData({ username: "", email: "", password: "", confirmPassword: "" });
+  };
 
   const handleShowPassword = () => {
     setShowPassword((prev) => !prev);
@@ -52,13 +65,19 @@ const Auth = () => {
         const user = await login(userData).unwrap();
         dispatch(setCredentials(user));
         navigate(HOME_ROUTE);
-      } catch (error) {}
+      } catch (error) {
+        setAuthError(error.data.message);
+      }
     } else {
       try {
-        const user = await registration(userData).unwrap();
-        dispatch(setCredentials(user));
-        navigate(HOME_ROUTE);
-      } catch (error) {}
+        if (Object.values(validationError).every((err) => err === false)) {
+          const user = await registration(userData).unwrap();
+          dispatch(setCredentials(user));
+          navigate(HOME_ROUTE);
+        }
+      } catch (error) {
+        setAuthError(error.data.message);
+      }
     }
   };
 
@@ -82,10 +101,14 @@ const Auth = () => {
         </div>
 
         <div className={styles.auth__form}>
-          <form action="" className={styles.form__container}>
+          <form className={styles.form__container} onSubmit={handleSubmit}>
             <div className={styles.form__content}>
               <h2>{isLogin ? "Log In" : "Sign Up"}</h2>
               <LockRoundedIcon />
+              {authError && (
+                <div className={styles.form__error}>{authError}</div>
+              )}
+
               {!isLogin && (
                 <Input
                   name={"username"}
@@ -93,24 +116,40 @@ const Auth = () => {
                   type={"text"}
                   autoComplete="new-password"
                   handleChange={handleChange}
+                  value={userData.username}
                   required
+                  error={validationError.username}
+                  setError={setValidationError}
+                  pattern="^[a-z0-9]{4,16}$"
+                  errorMessage="Username should be 4-16 characters and includes numbers or small letters only!"
                 />
               )}
               <Input
                 name={"email"}
                 label={"Email"}
                 type={"email"}
-                required
+                value={userData.email}
                 handleChange={handleChange}
+                required
+                error={validationError.email}
+                setError={setValidationError}
+                errorMessage="It Should be valid email address!"
               ></Input>
               <Input
                 name={"password"}
                 label={"Password"}
+                value={userData.password}
                 type={showPassword ? "text" : "password"}
                 autoComplete="new-password"
                 handleChange={handleChange}
                 handleShowPassword={handleShowPassword}
                 required
+                error={validationError.password}
+                setError={setValidationError}
+                pattern={
+                  !isLogin && "^(?=.*\\d)(?=.*[a-zA-Z])(?=.*[\\W_]).{8,20}$"
+                }
+                errorMessage="Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character"
               />
 
               {!isLogin && (
@@ -120,22 +159,27 @@ const Auth = () => {
                   type={showPassword ? "text" : "password"}
                   autoComplete="new-password"
                   handleChange={handleChange}
+                  value={userData.confirmPassword}
                   required
+                  error={validationError.confirmPassword}
+                  setError={setValidationError}
+                  confirmPassword={userData.password}
+                  errorMessage="Passwords doesn't match"
                 />
               )}
-              <Button onClick={handleSubmit}>
-                {isLogin ? "Log In" : "Sign Up"}
-              </Button>
+              <Button>{isLogin ? "Log In" : "Sign Up"}</Button>
               <div className={styles.form__switch}>
                 {isLogin ? (
-                  <div>
-                    <Link to={REGISTRATION_ROUTE}>
+                  <div className={styles.form__switch_btn}>
+                    <Link to={REGISTRATION_ROUTE} onClick={handleAuthChange}>
                       Don't have an account? Sign Up
                     </Link>
                   </div>
                 ) : (
-                  <div>
-                    <Link to={LOGIN_ROUTE}>Have an account ? Log In</Link>
+                  <div className={styles.form__switch_btn}>
+                    <Link to={LOGIN_ROUTE} onClick={handleAuthChange}>
+                      Have an account ? Log In
+                    </Link>
                   </div>
                 )}
               </div>

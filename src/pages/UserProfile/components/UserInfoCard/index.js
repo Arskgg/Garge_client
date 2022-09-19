@@ -53,8 +53,9 @@ const UserInfoCard = ({ user, numberOfPosts }) => {
           <div className={styles.card__username_container}>
             <div className={styles.card__username}>{user.username}</div>
 
-            {authUser.id !== user.id &&
-              (user?.followers?.includes(authUser.id) ? (
+            {authUser?.id &&
+              authUser?.id !== user.id &&
+              (user?.followers?.includes(authUser?.id) ? (
                 <Button outlined onClick={handleFollow}>
                   Following
                 </Button>
@@ -62,7 +63,7 @@ const UserInfoCard = ({ user, numberOfPosts }) => {
                 <Button onClick={handleFollow}>Follow</Button>
               ))}
 
-            {authUser.id === user.id && (
+            {authUser?.id === user.id && (
               <div className={styles.card__settings_icon} onClick={hanleModal}>
                 <ManageAccountsIcon />
               </div>

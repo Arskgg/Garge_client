@@ -44,7 +44,9 @@ const AddCommentCard = () => {
         value={comment}
         minRows={4}
       />
-      <Button onClick={sendComment}>Comment</Button>
+      <Button disabled={!user && true} onClick={sendComment}>
+        Comment
+      </Button>
     </div>
   );
 };

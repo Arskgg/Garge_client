@@ -8,7 +8,7 @@
     font-size: 18px;
     text-transform: uppercase;
     color: var(--primary-color);
-    outline: 2px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     &:hover {
       background-color: var(--primary-color);
       color: white;
@@ -26,10 +26,32 @@
     font-size: 18px;
     text-transform: uppercase;
     color: white;
-    outline: 2px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     &:hover {
       background-color: white;
       color: var(--primary-color);
+    }
+  }
+}
+
+.buttonDisabled {
+  button {
+    cursor: default;
+    background-color: gray;
+    outline: none;
+    &:hover {
+      background-color: gray;
+      color: white;
+    }
+  }
+}
+
+.buttonRed {
+  button {
+    background-color: var(--error-color);
+    border: 2px solid var(--error-color);
+    &:hover {
+      color: var(--error-color);
     }
   }
 }

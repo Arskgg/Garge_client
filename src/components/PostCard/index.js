@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./PostCard.module.scss";
-import { cars } from "../../data/brands";
 import { useNavigate } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/authSlice";
 import { getCarLogoImg } from "../../utils/carLogoImages";
+import UserImg from "../UserImg";
 
 const PostCard = ({ post, noUser }) => {
   const navigate = useNavigate();
@@ -17,8 +17,12 @@ const PostCard = ({ post, noUser }) => {
     navigate("/post/" + post._id);
   };
 
+  const handleOpenUser = () => {
+    navigate(`/user/${post.user_id._id}`);
+  };
+
   const handleEditPost = () => {
-    navigate(`update/post/${post._id}`);
+    navigate(`/update/post/${post._id}`);
   };
 
   return (
@@ -33,13 +37,19 @@ const PostCard = ({ post, noUser }) => {
 
         {!noUser && (
           <div className={styles.card__details}>
-            <div className={styles.card__user_img}>
-              <img
-                src={process.env.REACT_APP_API_URL + post.imgs[0]}
-                alt={post.imgs[0]}
-              />
+            <div onClick={handleOpenUser} className={styles.card__user_img}>
+              {post.user_id.img ? (
+                <img
+                  src={process.env.REACT_APP_API_URL + post.user_id.img}
+                  alt="User profile"
+                />
+              ) : (
+                <UserImg username={post.user_id.username} />
+              )}
             </div>
-            <div className={styles.card__username}>username</div>
+            <div onClick={handleOpenUser} className={styles.card__username}>
+              {post.user_id.username}
+            </div>
           </div>
         )}
 
@@ -53,12 +63,12 @@ const PostCard = ({ post, noUser }) => {
           <div className={styles.card__car_make}>{post.carMake}</div>
           <div className={styles.card__car_model}>{post.carModel}</div>
         </div>
-
-        {user?.id === post.user_id && (
-          <div onClick={handleEditPost} className={styles.card__edit_icon}>
-            <EditIcon />
-          </div>
-        )}
+        {user?.id &&
+          (user?.id === post.user_id._id || user?.id === post.user_id) && (
+            <div onClick={handleEditPost} className={styles.card__edit_icon}>
+              <EditIcon />
+            </div>
+          )}
       </div>
     </div>
   );

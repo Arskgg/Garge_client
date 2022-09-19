@@ -14,10 +14,11 @@ const FileUploadButton = ({ name, onSelect, multiple, setSelectedImages }) => {
     const filesUploaded = event.target.files;
     const arrOfFiles = Object.entries(filesUploaded).map((el) => el[1]);
 
-    const arrOfResizeFile = resizeImage(arrOfFiles, "file", 1920, 1080);
-    Promise.all(arrOfResizeFile).then((imgs) => {
-      onSelect(name, imgs);
-    });
+    onSelect(name, arrOfFiles);
+    // const arrOfResizeFile = resizeImage(arrOfFiles, "file", 1920, 1080);
+    // Promise.all(arrOfResizeFile).then((imgs) => {
+    //   onSelect(name, imgs);
+    // });
 
     if (setSelectedImages) {
       const arrOfResizeFileBase64 = resizeImage(arrOfFiles, "base64", 300, 300);

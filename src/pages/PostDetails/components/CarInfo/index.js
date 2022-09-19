@@ -4,6 +4,7 @@ import CarInfoComments from "./components/CommentList";
 import styles from "./CarInfo.module.scss";
 import AddCommentCard from "./components/AddCommentCard";
 import CommentList from "./components/CommentList";
+import Footer from "../../../../components/Footer";
 
 function CarInfo({ post }) {
   return (
@@ -18,6 +19,7 @@ function CarInfo({ post }) {
           <CommentList />
         </div>
       </div>
+      <Footer />
     </section>
   );
 }

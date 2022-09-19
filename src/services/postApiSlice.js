@@ -3,7 +3,7 @@ import { apiSlice } from "./apiSlice";
 export const postApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getPosts: builder.query({
-      query: () => ({ url: "api/posts" }),
+      query: (search) => ({ url: `api/posts?search=${search}` }),
       providesTags: (result) =>
         result
           ? [
@@ -30,6 +30,14 @@ export const postApiSlice = apiSlice.injectEndpoints({
       invalidatesTags: [{ type: "Posts", id: "LIST" }],
     }),
 
+    deletePost: builder.mutation({
+      query: (id) => ({
+        url: `api/posts/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: [{ type: "Posts", id: "LIST" }],
+    }),
+
     getPostById: builder.query({
       query: (id) => ({ url: `api/posts/${id}` }),
       providesTags: [{ type: "Posts", id: "LIST" }],
@@ -47,4 +55,5 @@ export const {
   useGetPostByIdQuery,
   useGetUserPostsQuery,
   useUpdatePostMutation,
+  useDeletePostMutation,
 } = postApiSlice;

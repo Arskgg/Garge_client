@@ -1,4 +1,3 @@
-import React from "react";
 import FormUpdateCard from "../../components/FormUpdateCard";
 import styles from "./PostUpdate.module.scss";
 

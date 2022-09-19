@@ -1,7 +1,7 @@
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
 import PostDetails from "./pages/PostDetails";
-import PostForm from "./pages/PostForm/PostForm";
+import PostForm from "./pages/PostForm";
 import PostUpdate from "./pages/PostUpdate";
 import UserProfile from "./pages/UserProfile";
 import {

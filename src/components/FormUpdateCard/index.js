@@ -7,9 +7,9 @@ import FileUploadButton from "../FileUploadButton";
 import Input from "../Input";
 import { cars } from "../../data/brands";
 import {
-  useCreatePostMutation,
   useGetPostByIdQuery,
   useUpdatePostMutation,
+  useDeletePostMutation,
 } from "../../services/postApiSlice";
 import { selectCurrentUser } from "../../store/authSlice";
 import SelectorInput from "../SelectorInput";
@@ -26,8 +26,8 @@ const FormUpdateCard = () => {
   const [carLogo, setCarLogo] = useState(null);
   const [selectedImgs, setSelectedImgs] = useState([]);
   const navigate = useNavigate();
-  const [createPost] = useCreatePostMutation();
-  const [updatePost] = useUpdatePostMutation();
+  const [updatePost, { isLoading: isUpdateLoading }] = useUpdatePostMutation();
+  const [deletePost, { isLoading: isDeleteLoading }] = useDeletePostMutation();
   const user = useSelector(selectCurrentUser);
   const [carForm, setCarForm] = useState({
     carMake: "",
@@ -43,9 +43,12 @@ const FormUpdateCard = () => {
     imgs: [],
     tags: [],
   });
-
   useEffect(() => {
     if (isSuccess) {
+      if (post.user_id !== user?.id) {
+        return navigate(HOME_ROUTE);
+      }
+
       setCarForm((prev) => ({ ...prev, ...post }));
       setSelectedImgs(
         post.imgs.map((img) => `${process.env.REACT_APP_API_URL}/${img}`)
@@ -84,6 +87,17 @@ const FormUpdateCard = () => {
     setCarForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleDelete = async (e) => {
+    e.preventDefault();
+
+    try {
+      await deletePost(id).unwrap;
+      navigate(HOME_ROUTE);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -106,8 +120,6 @@ const FormUpdateCard = () => {
 
       await updatePost({ id: post._id, formData }).unwrap();
 
-      //   await createPost(formData).unwrap();
-
       navigate(HOME_ROUTE);
     } catch (error) {
       console.log("Session expiered! ");
@@ -119,6 +131,7 @@ const FormUpdateCard = () => {
 
   return (
     <div className={styles.card}>
+      {isUpdateLoading && <Loading />}
       <form className={styles.form} action="POST">
         <div className={styles.form__content}>
           <h2 className={styles.card__title}>Update Post</h2>
@@ -267,6 +280,11 @@ const FormUpdateCard = () => {
           />
           <Divider />
           <Button onClick={handleSubmit}>Update</Button>
+
+          <Divider />
+          <Button onClick={handleDelete} red>
+            Delete Post
+          </Button>
         </div>
       </form>
     </div>

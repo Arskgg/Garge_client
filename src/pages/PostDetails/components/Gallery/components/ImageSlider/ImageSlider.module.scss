@@ -96,7 +96,7 @@
   justify-content: center;
   @include sm {
     flex-wrap: wrap;
-    flex: 1 0 10%;
+    flex: 0 0 20%;
   }
 
   & .image__container {
@@ -113,7 +113,7 @@
 
   .image__container,
   .image__container_selected {
-    flex: 0 1 20%;
+    flex: 0 1 5%;
     position: relative;
     border-radius: 4px;
 

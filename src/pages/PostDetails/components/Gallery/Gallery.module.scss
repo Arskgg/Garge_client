@@ -17,7 +17,7 @@
   height: 100vh;
   padding: 2rem;
 
-  @include xs {
-    padding: 1rem;
+  @include md {
+    padding: 1rem 0px;
   }
 }

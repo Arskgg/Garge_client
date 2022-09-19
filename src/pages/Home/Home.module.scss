@@ -1,0 +1,16 @@
+.home {
+  height: 100%;
+}
+
+.serach_result {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+  font-size: 2rem;
+  flex-direction: column;
+  color: rgba(0, 0, 0, 0.7);
+  gap: 0.5rem;
+  text-align: center;
+}

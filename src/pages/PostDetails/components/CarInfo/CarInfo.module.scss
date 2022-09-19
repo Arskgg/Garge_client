@@ -3,8 +3,11 @@
   scroll-snap-align: start;
   background-color: rgba(10, 10, 10);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
   &__container {
+    flex: 1 1 auto;
     display: flex;
     height: 100%;
     padding: 3%;

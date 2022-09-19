@@ -3,7 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PortraitIcon from "@mui/icons-material/Portrait";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./styles.scss";
 import {
   HOME_ROUTE,
@@ -17,14 +17,21 @@ import { useLogOutMutation } from "../../services/authApiSlice";
 import { logOut, selectCurrentUser } from "../../store/authSlice";
 import { useState } from "react";
 import UserImg from "../UserImg";
+import { setSearch } from "../../store/searchSlice";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [logOutFromServer] = useLogOutMutation();
 
+  const location = useLocation();
+  const isHome = location.pathname === HOME_ROUTE;
+
   const [toggleUserMenu, setToggleUserMenu] = useState(false);
   const user = useSelector(selectCurrentUser);
+  const handleSearch = (e) => {
+    dispatch(setSearch(e.target.value));
+  };
 
   const handleLogOut = async () => {
     try {
@@ -42,18 +49,20 @@ const NavBar = () => {
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <div className="navbar__search">
-          <input type="text" placeholder="Search" />
-          <span>
-            <SearchIcon />
-          </span>
-        </div>
+        {isHome && (
+          <div className="navbar__search">
+            <input type="text" placeholder="Search" onChange={handleSearch} />
+            <span>
+              <SearchIcon />
+            </span>
+          </div>
+        )}
 
         <div className="navbar__menu menu">
           {user ? (
             <>
               <div className="menu__create-post">
-                <Link to={POST_CREATE_ROUTE}>
+                <Link to={POST_CREATE_ROUTE} aria-label="Create Post">
                   <AddBoxIcon />
                 </Link>
               </div>
@@ -76,7 +85,7 @@ const NavBar = () => {
                       <li className="profile-menu__link">
                         <Link to={`/user/${user.id}`}>
                           <PortraitIcon />
-                          <p>Profile</p>
+                          Profile
                         </Link>
                       </li>
                       <li className="profile-menu__link">

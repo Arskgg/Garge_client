@@ -1,16 +1,17 @@
 import "./App.scss";
 import AppRouter from "./components/AppRouter";
 import NavBar from "./components/NavBar";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from "./utils/constants";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useCheckAuthMutation } from "./services/authApiSlice";
 import { setCredentials } from "./store/authSlice";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const [checkAuth] = useCheckAuthMutation();
 
   const location = useLocation();
@@ -33,12 +34,13 @@ function App() {
   }, [dispatch, checkAuth]);
 
   return (
-    <div className="wrapper">
+    <>
       {isNavBar && <NavBar />}
-      <main className="page_content">
+      <main className={`${isNavBar ? "page_content" : "main"}`}>
         <AppRouter />
       </main>
-    </div>
+      {isNavBar && <Footer />}
+    </>
   );
 }
 
