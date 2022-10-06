@@ -10,7 +10,7 @@
 
   @include sm {
     flex-wrap: wrap;
-    height: 130px;
+    height: 70px;
   }
 
   &__container {
@@ -92,7 +92,7 @@
 .menu {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   color: #fff;
   gap: 40px;
   margin: 0 0 0 40px;

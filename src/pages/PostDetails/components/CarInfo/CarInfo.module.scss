@@ -12,18 +12,26 @@
     height: 100%;
     padding: 3%;
     @include sm {
-      flex-wrap: wrap;
+      flex-direction: column;
     }
   }
 
   &__tech_specs {
     flex: 1 0 30%;
     width: 100%;
+
+    @include lg {
+      flex: 1 0 40%;
+    }
   }
 
   &__comments {
     flex: 1 1 70%;
     padding-left: 5%;
+
+    @include lg {
+      flex: 1 0 50%;
+    }
 
     @include sm {
       padding-left: 0;

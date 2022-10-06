@@ -31,6 +31,11 @@
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      scale: 1.1;
+    }
 
     img {
       width: 100%;
@@ -44,6 +49,11 @@
   &__username {
     font-size: 1rem;
     cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--primary-color);
+    }
   }
 
   // .comment-card__comment
@@ -72,6 +82,10 @@
 
     &_icon {
       cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: var(--primary-color);
+      }
     }
 
     &_number {

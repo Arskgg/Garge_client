@@ -11,7 +11,7 @@ export const carTypes = [
   "Van",
   "Sport Car",
   "Supercar",
-  "Luxury Car",
+  "Luxury",
   "Convertible",
   "Cabriolet",
   "Muscle Car",

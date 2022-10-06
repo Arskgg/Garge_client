@@ -16,7 +16,7 @@ const CommentList = () => {
 
       <div className={styles.comments__list}>
         {comments.map((comment) => (
-          <CommentCard key={comment.id} commentData={comment} />
+          <CommentCard key={comment._id} commentData={comment} />
         ))}
       </div>
     </div>

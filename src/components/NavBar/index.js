@@ -18,6 +18,8 @@ import { logOut, selectCurrentUser } from "../../store/authSlice";
 import { useState } from "react";
 import UserImg from "../UserImg";
 import { setSearch } from "../../store/searchSlice";
+import { motion } from "framer-motion";
+import debounce from "../../utils/debounce";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -29,11 +31,16 @@ const NavBar = () => {
 
   const [toggleUserMenu, setToggleUserMenu] = useState(false);
   const user = useSelector(selectCurrentUser);
+
   const handleSearch = (e) => {
-    dispatch(setSearch(e.target.value));
+    updateDebounceSearch(e.target.value);
   };
 
-  const handleLogOut = async () => {
+  const updateDebounceSearch = debounce((searchQuery) => {
+    dispatch(setSearch(searchQuery));
+  }, 700);
+
+  const handleLogOut = async (e) => {
     try {
       await logOutFromServer();
       dispatch(logOut());
@@ -42,7 +49,13 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <motion.nav
+      className="navbar"
+      initial={{ opacity: 0, y: "-100px" }}
+      animate={{ opacity: 1, y: "0" }}
+      exit={{ opacity: 0 }}
+      transition={{ delay: 0.2, ease: "easeOut" }}
+    >
       <div className="navbar__container">
         <div className="navbar__logo">
           <Link to={HOME_ROUTE} className="navbar__logo-link">
@@ -113,7 +126,7 @@ const NavBar = () => {
           )}
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

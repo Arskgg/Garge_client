@@ -1,4 +1,3 @@
-import React from "react";
 import FormCreateCard from "../../components/FormCreateCard";
 import styles from "./PostForm.module.scss";
 

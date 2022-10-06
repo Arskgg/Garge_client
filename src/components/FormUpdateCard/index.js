@@ -279,7 +279,7 @@ const FormUpdateCard = () => {
             setSelectedImages={setSelectedImgs}
           />
           <Divider />
-          <Button onClick={handleSubmit}>Update</Button>
+          <Button onClick={handleSubmit}>Submit</Button>
 
           <Divider />
           <Button onClick={handleDelete} red>

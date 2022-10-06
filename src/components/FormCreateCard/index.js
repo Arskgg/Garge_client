@@ -107,6 +107,7 @@ const FormCard = () => {
               <img src={carLogo} alt="carLogo" style={{ width: "100px" }} />
             )}
           </div>
+
           <div className={styles.form__car_info_section}>
             <div className={styles.form__car_info_container}>
               <h3 className={styles.form__subtitle}>Car Info</h3>

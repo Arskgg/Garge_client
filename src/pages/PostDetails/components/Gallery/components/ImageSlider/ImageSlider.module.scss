@@ -17,6 +17,7 @@
 
   @include lg {
     width: 100%;
+    flex: 0 1 60%;
   }
 
   @include xl {
@@ -94,9 +95,14 @@
   display: flex;
   gap: 10px;
   justify-content: center;
+
   @include sm {
     flex-wrap: wrap;
     flex: 0 0 20%;
+  }
+
+  @include lg {
+    flex: 0 0 10%;
   }
 
   & .image__container {

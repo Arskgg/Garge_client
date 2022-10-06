@@ -1,5 +1,15 @@
+@import "../../breakpoints.scss";
+
 .home {
   height: 100%;
+
+  @include sm {
+    padding-top: 80px;
+  }
+
+  @include xs {
+    padding-top: 70px;
+  }
 }
 
 .serach_result {

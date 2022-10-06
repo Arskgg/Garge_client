@@ -5,3 +5,39 @@
   overflow-y: scroll;
   height: 100vh;
 }
+
+.back_button {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+
+  @include md {
+    top: 1.5rem;
+    left: 1.5rem;
+    padding: 0.3rem;
+
+    svg {
+      font-size: 1.5rem;
+    }
+  }
+
+  @include xs {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.3rem;
+
+    svg {
+      font-size: 1rem;
+    }
+  }
+
+  .btn_hover {
+    color: white;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
+}

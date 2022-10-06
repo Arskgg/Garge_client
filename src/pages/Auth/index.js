@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../../assets/barnd/garage_main_logo_transparent.png";
 import LockRoundedIcon from "@mui/icons-material/LockRounded";
 import Input from "../../components/Input";
@@ -120,7 +119,7 @@ const Auth = () => {
                   required
                   error={validationError.username}
                   setError={setValidationError}
-                  pattern="^[a-z0-9]{4,16}$"
+                  pattern="^[a-z0-9_]{4,16}$"
                   errorMessage="Username should be 4-16 characters and includes numbers or small letters only!"
                 />
               )}
