@@ -18,7 +18,7 @@ function PostDetails() {
     return <Loading />;
   }
   const imagesLinks = post.imgs.map(
-    (image) => process.env.REACT_APP_API_URL + image
+    (image) => `${process.env.REACT_APP_API_URL}/${image}`
   );
 
   return (

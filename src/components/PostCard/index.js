@@ -30,7 +30,7 @@ const PostCard = ({ post, noUser }) => {
       <div className={styles.card__container}>
         <div onClick={handleOpenPost} className={styles.card__img}>
           <img
-            src={process.env.REACT_APP_API_URL + post.imgs[0]}
+            src={`${process.env.REACT_APP_API_URL}/${post.imgs[0]}`}
             alt={post.imgs[0]}
           />
         </div>
@@ -40,7 +40,7 @@ const PostCard = ({ post, noUser }) => {
             <div onClick={handleOpenUser} className={styles.card__user_img}>
               {post.user_id.img ? (
                 <img
-                  src={process.env.REACT_APP_API_URL + post.user_id.img}
+                  src={`${process.env.REACT_APP_API_URL}/${post.user_id.img}`}
                   alt="User profile"
                 />
               ) : (

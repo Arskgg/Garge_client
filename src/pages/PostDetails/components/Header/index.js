@@ -69,7 +69,7 @@ function Header({ post }) {
             transition={{ delay: "2.5", duration: "1", ease: "easeOut" }}
           >
             <img
-              src={process.env.REACT_APP_API_URL + post.imgs[0]}
+              src={`${process.env.REACT_APP_API_URL}/${post.imgs[0]}`}
               alt="Car Img"
             />
           </motion.div>
